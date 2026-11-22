@@ -1,4 +1,6 @@
 from flask import Flask, render_template, redirect, request
+from App import model2
+import math
 
 app = Flask(__name__)
 
@@ -28,7 +30,11 @@ def predict():
         new_val = list(map(float, [f_acid, v_acid, c_acid, r_sugar, chlorides, f_sulfur_d, t_sulfur_d, density, pH, sulphates, alcohol]))
 
         # Compute prediciton
-        print(new_val)
-        return render_template('result.html', result=100.00)
-    except:
+        prediction = math.ceil(model2.calculate_full(new_val)[0])
+        
+        print(prediction)
+        return render_template('result.html', result=prediction)
+    except Exception as e:
+        print("EXCEPTION", end= ' | ')
+        print(e)
         return render_template('predict.html')
