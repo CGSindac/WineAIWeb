@@ -1,66 +1,81 @@
 {% extends "layout.html"%}
 
 {% block body %}
-    <h1>Prediction page</h1>
+<img class="glass" src="{{ url_for('static', filename='css/img/wine-glass.png') }}" alt="">
+
+<header class="predict">
+    <h1>Predict Wine<em>quality</em></h1>
+</header>
+
+<main class = "page">
     <form method="post">
-        <div>
+        <fieldset>
+            <legend>Acidity & pH Properties</legend>
+    <div class = "fields">
+        <div class = "half">
             <label for="f_acidity">Fixed Acidity</label>
             <input type="number" step="0.01" placeholder="0.00" id="f_acidity" name="f_acidity">
         </div>
-        <div>
+        <div class = "half">
             <label for="v_acidity">Volatile Acidity</label>
             <input type="number" step="0.01" placeholder="0.00" id="v_acidity" name="v_acidity">
         </div>
-        
-        <div>    
+        <div class = "half">   
             <label for="c_acid">Citric Acid</label>
             <input type="number" step="0.01" placeholder="0.00" id="c_acid" name="c_acid">
         </div>
-        
+        <div class = "half">
+            <label for="pH">pH Level</label>
+            <input type="number" step="0.01" placeholder="0.00" id="pH" name="pH">
+        </div>
+    </div>
+        </fieldset>
 
-        <div>
-
+        <fieldset>
+            <legend>Chemical Composition & Preservation</legend>
+<div class = "fields">
+        <div  class = "half">
             <label for="r_sugar">Residual Sugar</label>
             <input type="number" step="0.01" placeholder="0.00" id="r_sugar" name="r_sugar">
         </div>
-        
-        <div>
+         <div  class = "half">
             <label for="chlorides">Chlorides</label>
             <input type="number" step="0.01" placeholder="0.00" id="chlorides" name="chlorides">
         </div>
-        
-        <div>
+        <div  class = "half">
             <label for="f_sulfur_d">Free Sulfur Dioxide</label>
             <input type="number" step="0.01" placeholder="0.00" id="f_sulfur_d" name="f_sulfur_d">
         </div>
         
-        <div>
+        <div  class = "half">
             <label for="t_sulfur_d">Total Sulfur Dioxide</label>
             <input type="number" step="0.01" placeholder="0.00" id="t_sulfur_d" name="t_sulfur_d">
         </div>
-        
-        <div>
-            <label for="density">Density</label>
-            <input type="number" step="0.01" placeholder="0.00" id="density" name="density">
-        </div>
-        
-        <div>
-            <label for="pH">pH Level</label>
-            <input type="number" step="0.01" placeholder="0.00" id="pH" name="pH">
-        </div>
-        
-        <div>
+        <div  class = "half">
             <label for="sulphates">Sulphates</label>
             <input type="number" step="0.01" placeholder="0.00" id="sulphates" name="sulphates">
         </div>
+</div>
+        </fieldset>
         
-        <div>
+    <fieldset>
+            <legend>Physical Properties & Alcohol Content</legend>
+                        <div class = "fields">
+        <div class ="half">
+            <label for="density">Density</label>
+            <input type="number" step="0.01" placeholder="0.00" id="density" name="density">
+        </div>        
+        <div class ="half">
             <label for="alcohol">Alcohol</label>
             <input type="number" step="0.01" placeholder="0.00" id="alcohol" name="alcohol">
         </div>
-
-        <div>
-            <button type="submit">Predict</button>
         </div>
+    </fieldset>
+        <div>
+            <button type="submit">Predict Quality</button>
+        </div>
+        </legend>
+
     </form>
+</main>
 {% endblock %}
