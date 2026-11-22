@@ -29,6 +29,6 @@ def predict():
 
         # Compute prediciton
         print(new_val)
-        return render_template('predict.html')
+        return render_template('result.html', result=100.00)
     except:
         return render_template('predict.html')
