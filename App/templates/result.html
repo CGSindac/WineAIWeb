@@ -1,9 +1,17 @@
-{% extends "layout.html"%}
+{% extends "layout.html" %}
+{% block title %}Result{% endblock %}
 
 {% block body %}
-    <h1>Result Page</h1>
+<img class="glass" src="{{ url_for('static', filename='css/img/wine-glass.png') }}" alt="">
 
-    <div>
-        <h1>Prediction: {{result}}</h1>
+<header class="predict">
+    <h1>Predicted Wine<em>quality</em></h1>
+</header>
+
+<main class="page result-page">
+    <div class="resultbg">
+    <p class="prediction" style ="color:white;" >Result:</p>
+    <p class="result">{{result}}</p>
     </div>
+</main>
 {% endblock %}
